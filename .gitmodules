@@ -7,3 +7,6 @@
 [submodule "arc-floor-area"]
 	path = arc-floor-area
 	url = https://github.com/nismod/arc-floor-area
+[submodule "simim"]
+	path = simim
+	url = https://github.com/nismod/simim
