@@ -1,0 +1,29 @@
+# Conda environment specification
+# To import/create a copy of the environment:
+#    conda env create -f .environment.yml
+name: arc-scenarios
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - contextily
+  - GDAL
+  - geopandas
+  - haversine
+  - jupyter
+  - matplotlib
+  - numpy
+  - nbconvert
+  - nbstripout
+  - openpyxl
+  - pandas
+  - pip
+  - requests
+  - scipy
+  - setuptools
+  - shapely
+  - ukcensusapi
+  - ukpopulation
+  - xlrd
+  - pip:
+    - spint
