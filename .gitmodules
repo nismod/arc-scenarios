@@ -1,3 +1,6 @@
 [submodule "arc-dwellings"]
 	path = arc-dwellings
 	url = https://github.com/nismod/arc-dwellings
+[submodule "arc-economics"]
+	path = arc-economics
+	url = https://github.com/nismod/arc-economics
