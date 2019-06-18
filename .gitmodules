@@ -1,0 +1,3 @@
+[submodule "arc-dwellings"]
+	path = arc-dwellings
+	url = https://github.com/nismod/arc-dwellings
