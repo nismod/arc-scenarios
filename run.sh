@@ -10,7 +10,7 @@ jupyter nbconvert --execute --no-prompt ./arc-dwellings/convert-scenarios.ipynb
 cp -r ./arc-dwellings/data_processed $SHARED_FOLDER/Scenarios/Dwellings/
 
 # Economics
-jupyter nbconvert --execute --no-prompt ./arc-economics/convert-scenarios.ipynb
+jupyter nbconvert --ExecutePreprocessor.timeout=600 --execute --no-prompt ./arc-economics/convert-scenarios.ipynb
 cp -r ./arc-economics/data_processed $SHARED_FOLDER/Scenarios/Economics/
 
 # Population
