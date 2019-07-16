@@ -6,7 +6,6 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - contextily
   - GDAL
   - geopandas
   - haversine
