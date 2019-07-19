@@ -48,6 +48,11 @@ Set up simim in develop mode:
     cd simim
     python setup.py develop
 
+Set `nbstripout` to avoid committing data and figures in notebooks (may need to run in 
+submodules as well as top-level project):
+
+    nbstripout --install
+
 
 ### Run
 

@@ -19,6 +19,7 @@ dependencies:
   - pip
   - requests
   - scipy
+  - seaborn
   - setuptools
   - shapely
   - ukcensusapi
