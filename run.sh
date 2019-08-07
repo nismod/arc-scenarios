@@ -2,7 +2,7 @@
 # Run all steps in scenarios workflow
 #
 # e.g. usage:
-#     bash -e -x run.sh ~/OneDrive\ -\ Nexus365/ARC/ 2.0.0-rc1
+#     bash -e -x run.sh ~/OneDrive\ -\ Nexus365/ARC/ 1.0.0-rc1
 #
 SHARED_FOLDER=$1
 VERSION=$2
@@ -50,4 +50,27 @@ cp ./arc-economics/data_processed/*.csv ./arc-floor-area/data_as_provided
 python ./arc-floor-area/estimate-floor-area.py ./arc-floor-area
 
 # Package for smif
-# TODO: combine in folder, use version, zip
+DIRNAME="socio-economic-$VERSION"
+rm -rf $DIRNAME
+rm -f "$DIRNAME.zip"
+mkdir $DIRNAME
+
+cp ./arc-dwellings/data_processed/arc_dwellings__*.csv $DIRNAME
+
+cp ./arc-economics/data_processed/arc_employment__*.csv $DIRNAME
+cp ./arc-economics/data_processed/arc_employment_by_sector__*.csv $DIRNAME
+cp ./arc-economics/data_processed/arc_employment_by_sector_for_energy_demand__*.csv $DIRNAME
+cp ./arc-economics/data_processed/arc_gva__*.csv $DIRNAME
+cp ./arc-economics/data_processed/arc_gva_by_sector__*.csv $DIRNAME
+cp ./arc-economics/data_processed/arc_gva_by_sector_for_energy_demand__*.csv $DIRNAME
+cp ./arc-economics/data_processed/arc_gva_per_head__*.csv $DIRNAME
+
+cp ./simim/data/output/arc_population__*.csv $DIRNAME
+
+cp ./arc-floor-area/data_processed/arc_floor_area__*.csv $DIRNAME
+
+zip -r "$DIRNAME.zip" $DIRNAME
+
+# Copy to share
+# cp "$DIRNAME.zip" "$SHARED_FOLDER/Scenarios/$DIRNAME.zip"
+# aws s3 cp "$DIRNAME.zip" "s3://nismod2-data/scenarios/$DIRNAME.zip"
