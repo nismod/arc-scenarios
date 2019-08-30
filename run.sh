@@ -32,6 +32,8 @@ pushd ./simim
     python ./scripts/run.py -c ./config/arc2-expansion__gjh-od1.json
     python ./scripts/run.py -c ./config/arc3-new-cities23__gjh-od1.json
     python ./scripts/run.py -c ./config/arc4-expansion23__gjh-od1.json
+    python ./scripts/run.py -c ./config/arc5-new-cities23-nb__gjh-od1.json
+    python ./scripts/run.py -c ./config/arc6-new-cities30-nb__gjh-od1.json
 
     # postprocess to scale and smif-format
     python ./scripts/postprocess.py -c ./config/arc0-unplanned__gjh-od1.json
