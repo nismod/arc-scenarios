@@ -2,7 +2,7 @@
 # Run all steps in scenarios workflow
 #
 # e.g. usage:
-#     bash -e -x run.sh ~/OneDrive\ -\ Nexus365/ARC/ 1.0.0-rc1
+#     bash -e -x run.sh ~/OneDrive\ -\ Nexus365/ARC/ 1.0.0
 #
 SHARED_FOLDER=$1
 VERSION=$2
@@ -32,8 +32,6 @@ pushd ./simim
     python ./scripts/run.py -c ./config/arc2-expansion__gjh-od1.json
     python ./scripts/run.py -c ./config/arc3-new-cities23__gjh-od1.json
     python ./scripts/run.py -c ./config/arc4-expansion23__gjh-od1.json
-    python ./scripts/run.py -c ./config/arc5-new-cities23-nb__gjh-od1.json
-    python ./scripts/run.py -c ./config/arc6-new-cities30-nb__gjh-od1.json
 
     # postprocess to scale and smif-format
     python ./scripts/postprocess.py -c ./config/arc0-unplanned__gjh-od1.json
@@ -70,6 +68,14 @@ cp ./arc-economics/data_processed/arc_gva_per_head__*.csv $DIRNAME
 cp ./simim/data/output/arc_population__*.csv $DIRNAME
 
 cp ./arc-floor-area/data_processed/arc_floor_area__*.csv $DIRNAME
+
+# drop new-cities in favour of new-cites-with-dwellings variants
+rm $DIRNAME/arc_population__1-new-cities.csv
+rm $DIRNAME/arc_population__3-new-cities23.csv
+rm $DIRNAME/arc_gva_per_head__1-new-cities.csv
+rm $DIRNAME/arc_gva_per_head__3-new-cities23.csv
+# drop -nb (no-base-change) variants
+rm $DIRNAME/*-nb.csv
 
 zip -r "$DIRNAME.zip" $DIRNAME
 
