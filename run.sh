@@ -2,7 +2,7 @@
 # Run all steps in scenarios workflow
 #
 # e.g. usage:
-#     bash -e -x run.sh ~/OneDrive\ -\ Nexus365/ARC/ 1.0.0
+#     bash -e -x run.sh ~/OneDrive\ -\ Nexus365/ARC/ 1.0.1
 #
 SHARED_FOLDER=$1
 VERSION=$2
