@@ -30,6 +30,13 @@ To download all:
 git clone --recurse-submodules https://github.com/nismod/arc-scenarios
 ```
 
+If you just cloned the `arc-scenarios` repository and forgot `--recurse-submodules`, pull the
+submodules in by running:
+
+```bash
+git submodule update --init
+```
+
 ### Python and libraries
 
 This project uses Python 3. We suggest using [miniconda](https://conda.io/miniconda.html) to
@@ -48,7 +55,7 @@ Set up simim in develop mode:
     cd simim
     python setup.py develop
 
-Set `nbstripout` to avoid committing data and figures in notebooks (may need to run in 
+Set `nbstripout` to avoid committing data and figures in notebooks (may need to run in
 submodules as well as top-level project):
 
     nbstripout --install
@@ -58,7 +65,7 @@ submodules as well as top-level project):
 
 Run all:
 
-    bash run.sh
+    bash run.sh ./path/to/shared/folder v1.1.0
 
 Run individual notebooks, for further data exploration or development, e.g.:
 
