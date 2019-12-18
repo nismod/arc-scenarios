@@ -1,16 +1,27 @@
 # Arc scenarios workflow
 
 Run scenario models and preprocess data for input to
-[`nismod/nismod2`](https://github.com/nismod/nismod2).
+[`nismod/nismod2`](https://github.com/nismod/nismod2) for study and analysis of the
+Oxford-Cambridge Arc.
 
-Consists of:
-- [`arc-dwellings`](https://github.com/nismod/arc-dwellings) - dwelling count projections
+Summary report:
+
+> Infrastructure Transitions Research Consortium (December 2019) 'A sustainable
+Oxford-Cambridge corridor? Spatial analysis of options and futures for the Arc' Available
+online: https://www.itrc.org.uk/wp-content/uploads/2019/11/arc-report-2019-V4.pdf
+
+The scenario generation workflow consists of:
+- [`arc-dwellings`](https://github.com/nismod/arc-dwellings) - dwelling count (housing)
+  scenarios
 - [`arc-economics`](https://github.com/nismod/arc-economics) - regional GVA and employment
-  projections
-- [`arc-floor-area`](https://github.com/nismod/arc-floor-area) - residential/non-residential
-  floor area projections
+  scenarios from Cambridge Econometrics
 - [`simim`](https://github.com/nismod/simim) - variants on population projections, affected by
-  employment scenarios
+  employment and housing scenarios
+- [`arc-floor-area`](https://github.com/nismod/arc-floor-area) - residential/non-residential
+  floor area scenarios, driven by population and GVA scenarios
+- (TODO) [`udm`](https://github.com/geospatialncl/urban_development_model) - urban development
+  scenarios at hectare grid scale, driven by population and employment scenarios as well as
+  other attractors and constraints
 
 Also uses:
 - [`ukpopulation`](https://github.com/nismod/ukpopulation) - ONS population projections
