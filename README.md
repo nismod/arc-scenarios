@@ -1,5 +1,7 @@
 # Arc scenarios workflow
 
+[![DOI](https://zenodo.org/badge/190181451.svg)](https://zenodo.org/badge/latestdoi/190181451)
+
 Run scenario models and preprocess data for input to
 [`nismod/nismod2`](https://github.com/nismod/nismod2) for study and analysis of the
 Oxford-Cambridge Arc.
