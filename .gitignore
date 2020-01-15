@@ -6,3 +6,4 @@ notebooks/cache/*
 notebooks/data/*
 
 socio-economic-*
+results/**/*.csv

@@ -2,22 +2,27 @@
 # Run all steps in scenarios workflow
 #
 # e.g. usage:
-#     bash -e -x run.sh ~/OneDrive\ -\ Nexus365/ARC/ 1.0.1
+#     bash run.sh ~/OneDrive\ -\ Nexus365/ARC/Scenarios 1.0.1
 #
+
+# echo commands and quit at first error
+set -e
+set -x
+
 SHARED_FOLDER=$1
 VERSION=$2
 
 # Dwellings
-jupyter nbconvert --execute --no-prompt ./arc-dwellings/convert-scenarios.ipynb
+jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute --no-prompt ./arc-dwellings/convert-scenarios.ipynb
 # copy to shared folder
-cp -r ./arc-dwellings/data_processed "$SHARED_FOLDER/Scenarios/Dwellings/"
+cp -r ./arc-dwellings/data_processed "$SHARED_FOLDER/Dwellings/"
 # copy to simim
 cp ./arc-dwellings/data_processed/*.csv ./simim/data/arc/
 
 # Economics
-jupyter nbconvert --ExecutePreprocessor.timeout=600 --execute --no-prompt ./arc-economics/convert-scenarios.ipynb
+jupyter nbconvert --ExecutePreprocessor.timeout=-1 --execute --no-prompt ./arc-economics/convert-scenarios.ipynb
 # copy to shared folder
-cp -r ./arc-economics/data_processed "$SHARED_FOLDER/Scenarios/Economics/"
+cp -r ./arc-economics/data_processed "$SHARED_FOLDER/Economics/"
 # copy to simim
 cp ./arc-economics/data_processed/*.csv ./simim/data/arc/
 
@@ -38,7 +43,7 @@ pushd ./simim
 popd
 
 # copy to shared folder
-cp ./simim/data/output/arc*.csv "$SHARED_FOLDER/Scenarios/Population/data/output"
+cp ./simim/data/output/arc*.csv "$SHARED_FOLDER/Population/data/output"
 
 # Per-capita economics
 cp ./simim/data/output/arc*.csv ./arc-economics/data_as_provided/
@@ -80,5 +85,5 @@ rm $DIRNAME/*-nb.csv
 zip -r "$DIRNAME.zip" $DIRNAME
 
 # Copy to share
-# cp "$DIRNAME.zip" "$SHARED_FOLDER/Scenarios/$DIRNAME.zip"
+# cp "$DIRNAME.zip" "$SHARED_FOLDER/$DIRNAME.zip"
 # aws s3 cp "$DIRNAME.zip" "s3://nismod2-data/scenarios/$DIRNAME.zip"

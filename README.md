@@ -73,17 +73,32 @@ submodules as well as top-level project):
 
     nbstripout --install
 
+On windows, if you see `ModuleNotFoundError: No module named 'win32api'` then
+
+    pip install pywin32
+
 
 ### Run
 
 Run all:
 
-    bash run.sh ./path/to/shared/folder v1.1.0
+    bash run.sh ./results v1.0.1
 
 Run individual notebooks, for further data exploration or development, e.g.:
 
     cd ./arc-dwellings
     jupyter convert-scenarios.ipynb
+
+Possible issues:
+
+- 2016-based national population projections (from NOMIS, table `NM_2009_1`)
+  might fail to download to
+  `simim/data/cache/NM_2009_1_b0ba853c8043261df86d911ba0505793.tsv`
+- Stats Wales subnational population projections (dataset `popu5099`) might fail
+  to download to `simim/data/cache/snpp_w.csv`
+- simim can fail with
+  `Exception: one or more input arrays have missing/NaN values`: seems to be a
+  first-run issue, tends to work after the second run
 
 
 ## Acknowledgments
